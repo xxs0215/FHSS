@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import SoapySDR; print\\('SoapySDR', SoapySDR.getABIVersion\\(\\)\\)\")",
+      "Bash(SoapySDRUtil --find)",
+      "Bash(python3 -c \"from gnuradio import soapy; print\\('gnuradio.soapy OK'\\)\")",
+      "Bash(python3 -c \"from gnuradio import qtgui; print\\('qtgui OK'\\)\")",
+      "Bash(python3 -c \"from gnuradio import analog, digital, filter, blocks; print\\('core OK'\\)\")",
+      "Bash(python3 -c \"from gnuradio import soapy; help\\(soapy.sink.make\\)\")",
+      "Bash(python3 -c \"from gnuradio import soapy; print\\([m for m in dir\\(soapy.sink\\) if 'gain' in m.lower\\(\\) or 'freq' in m.lower\\(\\) or 'rate' in m.lower\\(\\) or 'anten' in m.lower\\(\\) or 'band' in m.lower\\(\\)]\\)\")",
+      "Bash(timeout 25 SoapySDRUtil --probe=\"driver=hackrf,serial=000000000000000026a468dc210c8da7\")",
+      "Bash(grep -iA3 -E \"Tx|gain|antenna|range|frequency|sample\")",
+      "Bash(find / -name \"*soapy*sink*.block.yml\")",
+      "Bash(find / -path \"*soapy*\" -name \"*.yml\")",
+      "Bash(python3 -c \"from gnuradio import soapy; print\\(soapy.sink.__doc__\\); print\\('----INIT----'\\); print\\(soapy.sink.__init__.__doc__\\)\")"
+    ]
+  }
+}
